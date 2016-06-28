@@ -1,0 +1,32 @@
+{
+  "name": "generator-innorelia",
+  "version": "2.0.0",
+  "description": "A generator for an Innorelia Boilerplate TS",
+  "main": "index.js",
+  "files": [
+    "generators/app",
+    "generators/page",
+    "generators/widget",
+    "generators/filter",
+    "NameConventions.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliie/generator-innorelia.git"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Oliver Praesto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oliie/generator-innorelia/issues"
+  },
+  "homepage": "https://github.com/oliie/generator-innorelia#readme",
+  "dependencies": {
+    "yeoman-generator": "^0.23.3"
+  }
+}
