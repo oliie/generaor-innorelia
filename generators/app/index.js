@@ -11,11 +11,11 @@ module.exports = generators.Base.extend({
             }
         ]).then(function (answer) {
             if (answer.subgen === 'page') {
-                this.composeWith("aurelia-ts-pug:page");
+                this.composeWith("innorelia:page");
             } else if (answer.subgen === 'filter') {
-                this.composeWith("aurelia-ts-pug:filter");
+                this.composeWith("innorelia:filter");
             } else if (answer.subgen === 'widget') {
-                this.composeWith("aurelia-ts-pug:widget");
+                this.composeWith("innorelia:widget");
             }
         }.bind(this));
     }
