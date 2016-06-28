@@ -6,8 +6,4 @@ export class <%= camelCased %> {
     constructor(
         private API: APIService
     ) { }
-
-    canActivate() {
-        return this.API.isTokenValid();
-    }
 }

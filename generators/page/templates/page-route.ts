@@ -4,7 +4,10 @@
     name: '<%= name %>',
     moduleId: 'App/Views/<%= name %>',
     nav: true,
-    title: '<%= spacedWord %>'
+    title: '<%= spacedWord %>',
+    settings: {
+        roles: [/* Add roles */]
+    }
 }
 
 import { autoinject } from 'aurelia-framework';
@@ -16,7 +19,5 @@ export class <%= camelCased %> {
         private API: APIService
     ) { }
 
-    canActivate() {
-        return this.API.isTokenValid();
-    }
+
 }
