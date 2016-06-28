@@ -1,1 +1,1 @@
-# generaor-innorelia
+# generator-innorelia
