@@ -6,7 +6,7 @@
     nav: true/false,
     title: '<%= spacedWord %>',
     settings: {
-        roles: [/* Add roles */]
+        role: // Add role
     }
 }
 
