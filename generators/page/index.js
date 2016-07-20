@@ -18,12 +18,6 @@ module.exports = generators.Base.extend({
             default : this.appname // Default to current folder name
         }
 
-        var promptRoute = {
-            type    : 'confirm',
-            name    : 'route',
-            message : 'Would you like to provide a route?'
-        }
-
         var promptSass = {
             type    : 'confirm',
             name    : 'sass',
@@ -31,7 +25,7 @@ module.exports = generators.Base.extend({
         }
 
         !hasArgument && prompts.push(promptPageName);
-        prompts.push(promptRoute, promptSass);
+        prompts.push(promptSass);
 
         this.prompt(prompts).then(function (answers) {
             answers.name = hasArgument ? this.arguments[0] : answers.name;
@@ -45,7 +39,7 @@ module.exports = generators.Base.extend({
             );
 
             this.fs.copyTpl(
-                this.templatePath(answers.route ? 'page-route.ts' : 'page.ts'),
+                this.templatePath('page.ts'),
                 this.destinationPath(destinationPath + '.ts'),
                 {
                     name: answers.name,
