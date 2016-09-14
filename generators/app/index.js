@@ -6,7 +6,7 @@ module.exports = generators.Base.extend({
             {
                 type    : 'input',
                 name    : 'subgen',
-                message: 'Choose: component, service, valueconverter, view',
+                message: 'Choose: component, valueconverter, view',
                 default: this.appname
             }
         ]).then(function (answer) {
