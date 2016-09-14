@@ -11,10 +11,10 @@ module.exports = generators.Base.extend({
         var done = this.async();
         var hasArgument = !!this.arguments[0];
 
-        var promptPageName = {
+        var promptViewName = {
             type    : 'input',
             name    : 'name',
-            message : 'Provide page name (ex: my-page)',
+            message : 'Provide view name (ex: my-view)',
             default : this.appname // Default to current folder name
         }
 
@@ -24,7 +24,7 @@ module.exports = generators.Base.extend({
             message : 'Would you like to provide a SASS-file?'
         }
 
-        !hasArgument && prompts.push(promptPageName);
+        !hasArgument && prompts.push(promptViewName);
         prompts.push(promptSass);
 
         this.prompt(prompts).then(function (answers) {
@@ -33,13 +33,13 @@ module.exports = generators.Base.extend({
             var destinationPath = 'src/App/Views/' + answers.name;
 
             this.fs.copyTpl(
-                this.templatePath('page.pug'),
+                this.templatePath('view.pug'),
                 this.destinationPath(destinationPath + '.pug'),
                 { spacedWord: nameConventions.spacedWords(answers.name) }
             );
 
             this.fs.copyTpl(
-                this.templatePath('page.ts'),
+                this.templatePath('view.ts'),
                 this.destinationPath(destinationPath + '.ts'),
                 {
                     name: answers.name,
@@ -50,7 +50,7 @@ module.exports = generators.Base.extend({
 
             if (answers.sass) {
                 this.fs.copyTpl(
-                    this.templatePath('page.scss'),
+                    this.templatePath('view.scss'),
                     this.destinationPath('src/Sass/Views/' + answers.name + '.scss')
                 );
             }

@@ -11,17 +11,17 @@ module.exports = generators.Base.extend({
         var done = this.async();
         var hasArgument = !!this.arguments[0];
 
-        var promptWidgetName = {
+        var promptComponentName = {
             type    : 'input',
             name    : 'name',
-            message : 'Provide widget name (ex: my-widget)',
+            message : 'Provide component name (ex: my-component)',
             default : this.appname // Default to current folder name
         }
 
         var promptFiles = {
             type    : 'input',
             name    : 'files',
-            message : 'Choose one of following `ts`, `pug`, `both`',
+            message : 'Choose one of following: ts, pug, both',
             default : this.appname
         }
 
@@ -31,17 +31,17 @@ module.exports = generators.Base.extend({
             message : 'Would you like to provide a SASS-file?'
         }
 
-        !hasArgument && prompts.push(promptWidgetName);
+        !hasArgument && prompts.push(promptComponentName);
         prompts.push(promptFiles, promptSass);
 
         this.prompt(prompts).then(function (answers) {
             answers.name = hasArgument ? this.arguments[0] : answers.name;
-            var destinationPath = 'src/App/Widgets/' + answers.name;
+            var destinationPath = 'src/App/Components/' + answers.name;
             var self = this;
 
             function provideTs() {
                 self.fs.copyTpl(
-                    self.templatePath('widget.ts'),
+                    self.templatePath('component.ts'),
                     self.destinationPath(destinationPath + '.ts'),
                     {
                         camelCased: nameConventions.camelCased(answers.name)
@@ -51,7 +51,7 @@ module.exports = generators.Base.extend({
 
             function providePug() {
                 self.fs.copyTpl(
-                    self.templatePath('widget.pug'),
+                    self.templatePath('component.pug'),
                     self.destinationPath(destinationPath + '.pug'),
                     { }
                 );
@@ -72,8 +72,8 @@ module.exports = generators.Base.extend({
 
             if (answers.sass) {
                 this.fs.copyTpl(
-                    this.templatePath('widget.scss'),
-                    this.destinationPath('src/Sass/Widgets/' + nameConventions.camelCased(answers.name) + '.scss')
+                    this.templatePath('component.scss'),
+                    this.destinationPath('src/Sass/Components/' + nameConventions.camelCased(answers.name) + '.scss')
                 );
             }
 

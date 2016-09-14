@@ -11,22 +11,22 @@ module.exports = generators.Base.extend({
         var done = this.async();
         var hasArgument = !!this.arguments[0];
 
-        var promptFilterName = {
+        var promptValueConverterName = {
             type    : 'input',
             name    : 'name',
-            message : 'Provide filter name (ex: my-filter)',
+            message : 'Provide ValueConverters name (ex: reversed-text)',
             default : this.appname // Default to current folder name
         }
 
-        !hasArgument && prompts.push(promptFilterName);
+        !hasArgument && prompts.push(promptValueConverterName);
 
         this.prompt(prompts).then(function (answers) {
             answers.name = hasArgument ? this.arguments[0] : answers.name;
 
-            var destinationPath = 'src/App/Filters/' + answers.name;
+            var destinationPath = 'src/App/ValueConverters/' + answers.name;
 
             this.fs.copyTpl(
-                this.templatePath('filter.ts'),
+                this.templatePath('valueconverter.ts'),
                 this.destinationPath(destinationPath + '.ts'),
                 { camelCased: nameConventions.camelCased(answers.name) }
             );

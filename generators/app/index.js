@@ -6,16 +6,16 @@ module.exports = generators.Base.extend({
             {
                 type    : 'input',
                 name    : 'subgen',
-                message: 'Choose: `page`, `filter`, `widget`',
+                message: 'Choose: component, service, valueconverter, view',
                 default: this.appname
             }
         ]).then(function (answer) {
-            if (answer.subgen === 'page') {
-                this.composeWith("innorelia:page");
-            } else if (answer.subgen === 'filter') {
-                this.composeWith("innorelia:filter");
-            } else if (answer.subgen === 'widget') {
-                this.composeWith("innorelia:widget");
+            if (answer.subgen === 'view') {
+                this.composeWith("innorelia:view");
+            } else if (answer.subgen === 'valueconverter') {
+                this.composeWith("innorelia:valueconverter");
+            } else if (answer.subgen === 'component') {
+                this.composeWith("innorelia:component");
             }
         }.bind(this));
     }

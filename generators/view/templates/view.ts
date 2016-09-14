@@ -6,18 +6,19 @@
     nav: true/false,
     title: '<%= spacedWord %>',
     settings: {
-        role: // Add role
+        role: // Add role {int}
     }
 }
 
 import { autoinject } from 'aurelia-framework';
-import { APIService } from '../Services/APIService';
+import { APIService } from '../Services/api-service';
 
 @autoinject
 export class <%= camelCased %> {
+    // Variables goes here
+
     constructor(
         private API: APIService
     ) { }
-
 
 }
