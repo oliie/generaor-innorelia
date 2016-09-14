@@ -1,6 +1,6 @@
 {
   "name": "generator-innorelia",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A generator for an Innorelia Boilerplate TS",
   "main": "index.js",
   "files": [

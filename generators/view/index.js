@@ -51,7 +51,7 @@ module.exports = generators.Base.extend({
             if (answers.sass) {
                 this.fs.copyTpl(
                     this.templatePath('view.scss'),
-                    this.destinationPath('src/Sass/Views/' + answers.name + '.scss')
+                    this.destinationPath('src/Sass/Views/_' + answers.name + '.scss')
                 );
             }
 

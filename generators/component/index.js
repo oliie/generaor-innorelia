@@ -73,7 +73,7 @@ module.exports = generators.Base.extend({
             if (answers.sass) {
                 this.fs.copyTpl(
                     this.templatePath('component.scss'),
-                    this.destinationPath('src/Sass/Components/' + nameConventions.camelCased(answers.name) + '.scss')
+                    this.destinationPath('src/Sass/Components/_' + answers.name + '.scss')
                 );
             }
 
