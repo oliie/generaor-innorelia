@@ -11,14 +11,14 @@
 }
 
 import { autoinject } from 'aurelia-framework';
-import { APIService } from '../Services/api-service';
+import { API } from '../Services/api';
 
 @autoinject
 export class <%= camelCased %> {
     // Variables goes here
 
     constructor(
-        private API: APIService
+        private API: API
     ) { }
 
 }
